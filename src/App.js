@@ -13,6 +13,7 @@ import Gallery from './Gallery';
 import Search from './Search'
 
 //import flickr key
+const flickrKey = 
 
 export default class App extends Component {
   constructor() {
