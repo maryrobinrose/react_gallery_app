@@ -1,6 +1,5 @@
-
 //Connect to React and routes
-import React, { Component }from 'react';
+import React, { Component } from 'react';
 import {
   BrowserRouter,
   Route
@@ -10,14 +9,12 @@ import {
 import { Provider } from './Context';
 import './App.css';
 import Header from './Header';
-//Nav
-//Gallery
-//Gallery Item
-//Search
-//Not Found
+import Gallery from './Gallery';
+import Search from './Search'
+
+//import flickr key
 
 export default class App extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -31,6 +28,20 @@ export default class App extends Component {
 
   }
 
+
+  performSearch = (query = 'cats') => {
+    //change to flickr
+    axios.get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
+      .then(response => {
+        this.setState({
+          images: response.data.data,
+          loading: false
+        });
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
+  }
 
 const App = () => {
 
@@ -57,8 +68,3 @@ const App = () => {
 }
 
 export default App;
-
-
-//Production build
-  //npm run build
-  //npm install -g serve
