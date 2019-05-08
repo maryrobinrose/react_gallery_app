@@ -11,7 +11,8 @@ _This project uses JavaScript, JSX, and React to create an image gallery app  us
 ## Setup And Installation
 
 * Clone the project to a local directory
-* Open index.html
+* Run npm start
+* Open http://localhost:3000 in the browser 
 
 ## Known Bugs
 
