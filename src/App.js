@@ -11,9 +11,7 @@ import './App.css';
 import Header from './Header';
 import Gallery from './Gallery';
 import Search from './Search'
-
-//import flickr key
-const flickrKey = 
+import apiKey from "./Config.js";
 
 export default class App extends Component {
   constructor() {
