@@ -38,7 +38,7 @@ export default class App extends Component {
 
 
   performSearch = (query = 'sunsets') => {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${key}&tags=${query}&per_page=&format=json&nojsoncallback=1`)
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrApi}&tags=${query}&per_page=&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           images: response.data.data,
@@ -56,7 +56,7 @@ export default class App extends Component {
         <div className="main-header">
           <div className="inner">
             <h1 className="main-title">GifSearch</h1>
-            <SearchForm onSearch={this.performSearch}/>
+            <Search onSearch={this.performSearch}/>
           </div>
         </div>
         <div className="main-content">
@@ -72,4 +72,4 @@ export default class App extends Component {
 
 }
 
-export default App;
+//export default App;
