@@ -1,7 +1,7 @@
 //Connect to React and routes
 import React, { Component } from 'react';
 import {
-  BrowserRouter,
+  BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
