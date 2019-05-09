@@ -2,7 +2,7 @@ import React from 'react';
 import Gallery from './Gallery';
 import NoImage from './NoImage';
 
-const GallerItem = props => {
+const GalleryItem = props => {
 
   const results = props.data;
   let gallery;

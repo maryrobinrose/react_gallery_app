@@ -1,3 +1,4 @@
+//Get the React object from the react module
 import React from 'react';
 
 const Gallery = props => (
@@ -6,4 +7,5 @@ const Gallery = props => (
   </li>
 );
 
+//Expose Gallery component to other modules
 export default Gallery;
