@@ -4,7 +4,7 @@ import NoImage from './NoImage';
 
 const GalleryItem = props => {
 
-  let results = props.data;
+  const results = props.data;
   let gallery;
   if(results.length > 0) {
     gallery = results.map(image => <Gallery url={image.images.fixed_height} key={image.id}/>);
