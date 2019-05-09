@@ -2,35 +2,39 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter,
-  Route
+  Route,
+  Link
 } from 'react-router-dom';
 
 //Connect to App Components
 import { Provider } from './Context';
 import './App.css';
+import axios from 'axios';
 import Header from './Header';
 import Gallery from './Gallery';
-import Search from './Search'
-import apiKey from "./Config.js";
+import Search from './Search';
+import apiKey from 'config.js';
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      images: [],
+      sunsets: [],
+      waterfalls: [],
+      rainbows: [],
       loading: true
     };
   }
 
   componentDidMount() {
-    this.performSearch();
+    this.performSearch('sunsets'); //?
 
   }
 
 
-  performSearch = (query = 'cats') => {
+  performSearch = (query = 'sunsets') => {
     //change to flickr
-    axios.get(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=a76b7db2a7dfe0204f80447c3b43c5af&tags=${query}&per_page=&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           images: response.data.data,
@@ -43,15 +47,6 @@ export default class App extends Component {
   }
 
 const App = () => {
-
-    //Remove Items from State
-    handleRemovePlayer = (id) => {
-      this.setState( prevState => {
-        return {
-          players: prevState.players.filter( p => p.id !== id)
-        };
-      });
-    }
 
       return (
         //Renders route router that listens to URL changes
