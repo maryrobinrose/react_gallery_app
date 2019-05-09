@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-import apiKey from '/config.js';
+import apiKey from './config.js';
 
 //Connect to App Components
 import Header from './Components/Header';
