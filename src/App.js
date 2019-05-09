@@ -7,12 +7,13 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-import apiKey from 'config.js';
+import apiKey from '/config.js';
 
 //Connect to App Components
-import Header from './Header';
-import Gallery from './Gallery';
-import Search from './Search';
+import Header from './Components/Header';
+import Gallery from './Components/Gallery';
+import GalleryItem from './Components/GalleryItem';
+import Search from './Components/Search';
 
 //API key variable
 const flickrApi = apiKey;
@@ -63,7 +64,7 @@ export default class App extends Component {
           {
             (this.state.loading)
             ? <p>Loading...</p>
-            : <GifList data={this.state.gifs}/>
+            : <GalleryItem data={this.state.gallery}/>
           }
         </div>
       </div>

@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider } from './components/Context'
+//import { Provider } from './components/Context'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Provider>
+  //<Provider>
     <App />,
-  </Provider>,
+  //</Provider>,
   document.getElementById('root')
 );
 
