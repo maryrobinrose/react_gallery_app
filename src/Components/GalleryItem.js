@@ -6,17 +6,20 @@ const GalleryItem = props => {
 
   const results = props.data;
   let gallery;
-  if(results.length > 0) {
-    gallery = results.map(image => <Gallery url={image.images.fixed_height} key={image.id}/>);
-  } else {
-    gallery = <NoImage />
-  }
+    if(results.length > 0) {
+      gallery = results.map(image => <Gallery url={} key={image.id}/>);
+    } else {
+      gallery = <NoImage />
+    }
 
 
   return(
-    <ul className="photo-container">
-      {gallery}
-    </ul>
+    <div className="photo-container">
+      <h1>Results</h1>
+        <ul>
+          {gallery}
+        </ul>
+    </div>
   );
 }
 
