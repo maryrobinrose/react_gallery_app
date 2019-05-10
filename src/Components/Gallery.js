@@ -1,4 +1,4 @@
-//Get the React object from the react module
+//Import React library
 import React from 'react';
 
 const Gallery = props => (

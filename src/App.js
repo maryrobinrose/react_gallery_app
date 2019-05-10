@@ -1,4 +1,4 @@
-//Connect to React and routes
+//Import React library
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
