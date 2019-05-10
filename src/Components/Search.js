@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class SearchForm extends Component {
+export default class Search extends Component {
 
   state = {
     searchText: ''
@@ -19,7 +19,7 @@ export default class SearchForm extends Component {
   render() {
     return (
       <form className="search-form" onSubmit={this.handleSubmit} >
-        <label className="is-hidden" htmlFor="search">Search</label>
+
         <input type="search"
                onChange={this.onSearchChange}
                name="search"
@@ -30,3 +30,5 @@ export default class SearchForm extends Component {
     );
   }
 }
+
+//<label className="is-hidden" htmlFor="search">Search</label>
