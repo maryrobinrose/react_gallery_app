@@ -14,9 +14,6 @@ import Gallery from './Components/Gallery';
 import GalleryItem from './Components/GalleryItem';
 import Search from './Components/Search';
 
-//API key variable
-const flickrApi = apiKey;
-
 export default class App extends Component {
   constructor() {
     super();
