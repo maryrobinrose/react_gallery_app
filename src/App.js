@@ -88,7 +88,7 @@ export default class App extends Component {
             {
               (this.state.loading)
               ? <p>Loading...</p>
-              : <GalleryItem data={this.state.gallery}/>
+              : <Gallery data={this.state.gallery}/>
             }
           </div>
         </div>
