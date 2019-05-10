@@ -27,4 +27,4 @@ const Gallery = props => {
   );
 }
 
-export default GalleryItem;
+export default Gallery;
