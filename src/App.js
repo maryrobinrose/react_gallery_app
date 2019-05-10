@@ -51,7 +51,7 @@ export default class App extends Component {
   //Create page HTML
   render() {
     return (
-      //-->>Add <BrowserRouter>?
+      <BrowserRouter>
         <div>
           <div className="main-header">
             <div className="inner">
@@ -68,6 +68,7 @@ export default class App extends Component {
             }
           </div>
         </div>
+      </BrowserRouter>
     );
   }
 
