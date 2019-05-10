@@ -1,6 +1,6 @@
 //Import React library
 import React from 'react';
-import Gallery from './Gallery';
+import GalleryItem from './GalleryItem';
 import NoImage from './NoImage';
 
 const Gallery = props => {
@@ -9,8 +9,8 @@ const Gallery = props => {
   let images;
   if(results.length > 0) {
     images = results.map(image => (
-        <GalleryItem url={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg}`
-        key={image.id} />);
+        <GalleryItem url={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`}
+        key={image.id} />));
   } else {
       images = <NoImage />
 
