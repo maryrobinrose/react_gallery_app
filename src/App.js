@@ -20,7 +20,6 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      images: [],
       sunsets: [],
       waterfalls: [],
       rainbows: [],
@@ -29,7 +28,6 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.performSearch();
     this.performSearch('sunsets');
     this.performSearch('waterfalls');
     this.performSearch('rainbows');
@@ -38,7 +36,6 @@ export default class App extends Component {
   performSearch = (query = 'sunsets') => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=&format=json&nojsoncallback=1`)
       .then(response => {
-          //-->>Add if then statements for searches
         this.setState({
           images: response.data.data,
           loading: false
@@ -48,6 +45,33 @@ export default class App extends Component {
         console.log('Error fetching and parsing data', error);
       });
   }
+
+  performSearch = (query = 'waterfalls') => {
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=&format=json&nojsoncallback=1`)
+      .then(response => {
+        this.setState({
+          images: response.data.data,
+          loading: false
+        });
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
+  }
+
+  performSearch = (query = 'rainbows') => {
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=&format=json&nojsoncallback=1`)
+      .then(response => {
+        this.setState({
+          images: response.data.data,
+          loading: false
+        });
+      })
+      .catch(error => {
+        console.log('Error fetching and parsing data', error);
+      });
+  }
+
   //Create page HTML
   render() {
     return (

@@ -1,4 +1,3 @@
-//Import React library
 import React from 'react';
 
 const GalleryItem = props => (
@@ -7,5 +6,4 @@ const GalleryItem = props => (
 
 );
 
-//Expose Gallery component to other modules
 export default GalleryItem;
