@@ -36,7 +36,7 @@ export default class App extends Component {
   }
 
   performSearch = (query = 'sunsets') => {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrApi}&tags=${query}&per_page=&format=json&nojsoncallback=1`)
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=&format=json&nojsoncallback=1`)
       .then(response => {
           //-->>Add if then statements for searches
         this.setState({
