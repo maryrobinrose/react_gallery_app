@@ -5,11 +5,11 @@ import NoImage from './NoImage';
 const GalleryItem = props => {
 
   const results = props.data;
-  let gallery;
+  let images;
     if(results.length > 0) {
-      gallery = results.map(image => <Gallery url={} key={image.id}/>);
+      images = results.map(image => <Gallery url={} key={image.id}/>);
     } else {
-      gallery = <NoImage />
+      images = <NoImage />
     }
 
 
@@ -17,7 +17,7 @@ const GalleryItem = props => {
     <div className="photo-container">
       <h1>Results</h1>
         <ul>
-          {gallery}
+          {images}
         </ul>
     </div>
   );
