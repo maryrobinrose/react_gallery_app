@@ -31,4 +31,4 @@ export default class Search extends Component {
   }
 }
 
-//<label className="is-hidden" htmlFor="search">Search</label>
+export default Search;
