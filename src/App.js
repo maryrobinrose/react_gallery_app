@@ -12,7 +12,6 @@ import apiKey from './config.js';
 //Connect to App Components
 import Header from './Components/Header';
 import Gallery from './Components/Gallery';
-import GalleryItem from './Components/GalleryItem';
 import Search from './Components/Search';
 
 //Create component class
