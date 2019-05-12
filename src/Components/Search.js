@@ -1,15 +1,19 @@
+//Import React library
 import React, { Component } from 'react';
 
 export default class Search extends Component {
 
+  //Gets updated with onSearchChange
   state = {
     searchText: ''
   }
 
+  //Text user types into input field
   onSearchChange = e => {
     this.setState({ searchText: e.target.value });
   }
 
+  //Called when form is submitted
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSearch(this.query.value);
