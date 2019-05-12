@@ -59,15 +59,21 @@ export default class App extends Component {
             </div>
           </div>
           <div className="main-content">
-            {
-              (this.state.loading)
-              ? <p>Loading...</p>
-              : <Gallery data={this.state.sunsets} />
-            }
+          {
+            (this.state.loading)
+            ? <p>Loading...</p>
+            : <Gallery data={this.state.sunsets} />
+          }
           </div>
         </div>
       </BrowserRouter>
     );
   }
-
 }
+
+/*
+      <Route exact path="/" component={Home} />
+      <Route path="/about" render={ () => <About title='About' /> } />
+      <Route path="/teachers" component={Teachers} />
+      <Route path="/courses" component={Courses} />
+*/
