@@ -4,7 +4,8 @@ import React, { Component } from 'react';
 import {
   BrowserRouter,
   Route,
-  Link
+  Link,
+  Switch
 } from 'react-router-dom';
 import axios from 'axios';
 import apiKey from './config.js';
@@ -62,7 +63,11 @@ export default class App extends Component {
           {
             (this.state.loading)
             ? <p>Loading...</p>
-            : <Gallery data={this.state.sunsets} />
+            : <Switch>
+                <Route path="/sunsets" render={ () => <Gallery data={this.state.sunsets} />
+                <Route path="/waterfalls" render={ () => <Gallery data={this.state.waterfalls} />
+                <Route path="/rainbows" render={ () => <Gallery data={this.state.rainbows} />
+            </ Switch>
           }
           </div>
         </div>
