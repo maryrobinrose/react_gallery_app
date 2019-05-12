@@ -51,34 +51,31 @@ export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <div className="main-header">
-            <div className="inner">
+          <div className="container">
               <h1 className="main-title">Image Search</h1>
               <Search onSearch={this.performSearch}/>
               <Header />
-            </div>
+                <Switch>
+                    <Route exact path="/sunsets" render={ () =>
+                      (this.state.loading)
+                      ? <p>Loading...</p>
+                      : <Gallery data={this.state.sunsets} query="sunsets" />
+                    } />
+                    <Route exact path="/waterfalls" render={ () =>
+                      (this.state.loading)
+                      ? <p>Loading...</p>
+                      : <Gallery data={this.state.waterfalls} query="waterfalls" />
+                    } />
+                    <Route exact path="/rainbows" render={ () =>
+                      (this.state.loading)
+                      ? <p>Loading...</p>
+                      : <Gallery data={this.state.rainbows} query="rainbows" />
+                    } />
+
+                </ Switch>
+
           </div>
-          <div className="main-content">
-          {
-            (this.state.loading)
-            ? <p>Loading...</p>
-            : <Switch>
-                <Route path="/sunsets" render={ () => <Gallery data={this.state.sunsets} />
-                <Route path="/waterfalls" render={ () => <Gallery data={this.state.waterfalls} />
-                <Route path="/rainbows" render={ () => <Gallery data={this.state.rainbows} />
-            </ Switch>
-          }
-          </div>
-        </div>
       </BrowserRouter>
     );
   }
 }
-
-/*
-      <Route exact path="/" component={Home} />
-      <Route path="/about" render={ () => <About title='About' /> } />
-      <Route path="/teachers" component={Teachers} />
-      <Route path="/courses" component={Courses} />
-*/
