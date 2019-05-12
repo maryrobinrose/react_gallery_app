@@ -14,11 +14,12 @@ import Header from './Components/Header';
 import Gallery from './Components/Gallery';
 import Search from './Components/Search';
 
-//Create component class
+//Create component class with arrays
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
+      results: [],
       sunsets: [],
       waterfalls: [],
       rainbows: [],
@@ -26,12 +27,15 @@ export default class App extends Component {
     };
   }
 
+  //Fetch data from API after page is rendered
   componentDidMount() {
+    this.performSearch();
     this.performSearch('sunsets');
     this.performSearch('waterfalls');
     this.performSearch('rainbows');
   }
 
+  //Perform search based on which category is selected
   performSearch = (query) => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
@@ -48,6 +52,11 @@ export default class App extends Component {
         } else if (query === "rainbows") {
           this.setState({
             rainbows: response.data.photos.photo,
+            loading: false
+          });
+        } else {
+          this.setState({
+            results: response.data.photos.photo,
             loading: false
           });
         }
@@ -81,6 +90,11 @@ export default class App extends Component {
                       (this.state.loading)
                       ? <p>Loading...</p>
                       : <Gallery data={this.state.rainbows} query="rainbows" />
+                    } />
+                    <Route path="/search" render={ () =>
+                      (this.state.loading)
+                      ? <p>Loading...</p>
+                      : <Gallery data={this.state.results} query={this.query.value} />
                     } />
 
                 </ Switch>
