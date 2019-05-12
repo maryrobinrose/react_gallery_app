@@ -35,10 +35,22 @@ export default class App extends Component {
   performSearch = (query) => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
-        this.setState({
-          [query]: response.data.photos.photo,
-          loading: false
-        });
+        if (query === "sunsets") {
+          this.setState({
+            sunsets: response.data.photos.photo,
+            loading: false
+          });
+        } else if (query === "waterfalls") {
+          this.setState({
+            waterfalls: response.data.photos.photo,
+            loading: false
+          });
+        } else if (query === "rainbows") {
+          this.setState({
+            rainbows: response.data.photos.photo,
+            loading: false
+          });
+        }
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error);
