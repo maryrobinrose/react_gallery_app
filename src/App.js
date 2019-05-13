@@ -73,31 +73,37 @@ export default class App extends Component {
       <BrowserRouter>
           <div className="container">
               <h1 className="main-title">Image Search</h1>
-              <Search onSearch={this.performSearch}/>
+              <Route
+                render={props =>
+                  <Search
+                    {...props}
+                    onSearch={this.performSearch}
+                  />
+                }
+              />
               <Header />
-                <Switch>
-                    <Route exact path="/sunsets" render={ () =>
-                      (this.state.loading)
-                      ? <p>Loading...</p>
-                      : <Gallery data={this.state.sunsets} query="sunsets" />
-                    } />
-                    <Route exact path="/waterfalls" render={ () =>
-                      (this.state.loading)
-                      ? <p>Loading...</p>
-                      : <Gallery data={this.state.waterfalls} query="waterfalls" />
-                    } />
-                    <Route exact path="/rainbows" render={ () =>
-                      (this.state.loading)
-                      ? <p>Loading...</p>
-                      : <Gallery data={this.state.rainbows} query="rainbows" />
-                    } />
-                    <Route path="/search" render={ () =>
-                      (this.state.loading)
-                      ? <p>Loading...</p>
-                      : <Gallery data={this.state.results} query={this.query.value} />
-                    } />
-
-                </ Switch>
+              <Switch>
+                  <Route exact path="/sunsets" render={ () =>
+                    (this.state.loading)
+                    ? <p>Loading...</p>
+                    : <Gallery data={this.state.sunsets} query="sunsets" />
+                  } />
+                  <Route exact path="/waterfalls" render={ () =>
+                    (this.state.loading)
+                    ? <p>Loading...</p>
+                    : <Gallery data={this.state.waterfalls} query="waterfalls" />
+                  } />
+                  <Route exact path="/rainbows" render={ () =>
+                    (this.state.loading)
+                    ? <p>Loading...</p>
+                    : <Gallery data={this.state.rainbows} query="rainbows" />
+                  } />
+                  <Route path="/search/:topic" render={ () =>
+                    (this.state.loading)
+                    ? <p>Loading...</p>
+                    : <Gallery data={this.state.results} />
+                  } />
+              </ Switch>
 
           </div>
       </BrowserRouter>
