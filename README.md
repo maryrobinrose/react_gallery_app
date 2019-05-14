@@ -13,6 +13,7 @@ _This project uses JavaScript, JSX, and React to create an image gallery app  us
 * Clone the project to a local directory
 * Run npm install
 * Run npm start
+* Create config.js file with flickrAPI key
 * Open http://localhost:3000 in the browser
 
 ## Known Bugs
